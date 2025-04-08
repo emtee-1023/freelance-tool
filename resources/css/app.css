@@ -1,0 +1,27 @@
+@import "../vendor/bootstrap/css/bootstrap.min.css";
+@import "../vendor/bootstrap-icons/bootstrap-icons.css";
+@import "../vendor/boxicons/css/boxicons.min.css";
+@import "../vendor/quill/quill.snow.css";
+@import "../vendor/quill/quill.bubble.css";
+@import "../vendor/remixicon/remixicon.css";
+@import "../vendor/simple-datatables/style.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Success Toast */
+.toast-success {
+    background-color: #28a745 !important;
+    /* Green */
+    color: white !important;
+    /* White text */
+}
+
+/* Error Toast */
+.toast-error {
+    background-color: #dc3545 !important;
+    /* Red */
+    color: white !important;
+    /* White text */
+}
