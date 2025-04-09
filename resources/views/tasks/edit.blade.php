@@ -32,12 +32,14 @@
                                     @method('PUT')
 
                                     <div class="d-flex flex-row justify-between mt-4">
-                                        <div class="col-5">
+                                        <div class="col-12">
                                             <x-input-label for="description" :value="__('Description')" />
-                                            <textarea id="description" class="block mt-1 w-full" name="description" required autofocus>{{ old('description', $task->description) }}</textarea>
+                                            <textarea rows="4" id="description" class="block mt-1 w-full" name="description" required autofocus>{{ old('description', $task->description) }}</textarea>
                                             <x-input-error :messages="$errors->get('description')" class="mt-2" />
                                         </div>
+                                    </div>
 
+                                    <div class="d-flex flex-row justify-between mt-4">
                                         <div class="col-5">
                                             <x-input-label for="assigned_to" :value="__('Assigned To')" />
                                             <x-select-input id="assigned_to" class="block mt-1 w-full" name="assigned_to"
@@ -55,6 +57,23 @@
                                             </x-select-input>
                                             <x-input-error :messages="$errors->get('assigned_to')" class="mt-2" />
                                         </div>
+
+                                        <div class="col-5">
+                                            <x-input-label for="fiverr_account" :value="__('Fiverr Account')" />
+                                            <x-select-input id="fiverr_account" class="block mt-1 w-full"
+                                                name="fiverr_account" :value="old('fiverr_account')" autofocus>
+                                                <option value="" disabled
+                                                    {{ old('fiverr_account') ? '' : 'selected' }}>Choose a fiverr account
+                                                </option>
+                                                @foreach ($fiverrAccounts as $fiverrAccount)
+                                                    <option value="{{ $fiverrAccount->id }}"
+                                                        {{ old('fiverr_account', $task->fiverr_account_id) == $fiverrAccount->id ? 'selected' : '' }}>
+                                                        {{ $fiverrAccount->username }}</option>
+                                                @endforeach
+                                            </x-select-input>
+                                            <x-input-error :messages="$errors->get('fiverr_account')" class="mt-2" />
+                                        </div>
+
                                     </div>
 
                                     <div class="d-flex flex-row justify-between mt-4">

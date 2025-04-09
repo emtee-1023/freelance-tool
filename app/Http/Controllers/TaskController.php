@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FiverrAccount;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class TaskController extends Controller
     {
         $freelancers = User::where('user_type', 'freelancer')->get();
         $statuses = Task::getStatusOptions();
-        return view('tasks.create', compact('freelancers', 'statuses'));
+        $fiverrAccounts = FiverrAccount::all();
+        return view('tasks.create', compact('freelancers', 'statuses', 'fiverrAccounts'));
     }
 
     /**
@@ -35,6 +37,7 @@ class TaskController extends Controller
         $request->validate([
             'description' => 'required|string|max:255',
             'assigned_to' => 'nullable|exists:users,id',
+            'fiverr_account' => 'nullable|exists:fiverr_accounts,id',
             'amount' => 'required|numeric|min:0',
             'freelancer_pay' => 'required|numeric|min:0',
             'deadline' => 'nullable|date',
@@ -43,6 +46,7 @@ class TaskController extends Controller
         Task::create([
             'description' => $request->description,
             'assigned_to' => $request->assigned_to ?: null,
+            'fiverr_account_id' => $request->fiverr_account ?: null,
             'amount' => $request->amount,
             'freelancer_pay' => $request->freelancer_pay,
             'deadline' => $request->deadline,
@@ -67,7 +71,8 @@ class TaskController extends Controller
     {
         $freelancers = User::where('user_type', 'freelancer')->get();
         $statuses = Task::getStatusOptions();
-        return view('tasks.edit', compact('task', 'freelancers', 'statuses'));
+        $fiverrAccounts = FiverrAccount::all();
+        return view('tasks.edit', compact('task', 'freelancers', 'statuses', 'fiverrAccounts'));
     }
 
     /**
@@ -78,34 +83,32 @@ class TaskController extends Controller
         $request->validate([
             'description' => 'required|string|max:255',
             'assigned_to' => 'nullable|exists:users,id',
+            'fiverr_account' => 'nullable|exists:fiverr_accounts,id',
             'amount' => 'required|numeric|min:0',
             'freelancer_pay' => 'required|numeric|min:0',
             'deadline' => 'nullable|date',
             'status' => 'nullable|in:' . implode(',', Task::getStatusOptions()),
         ]);
 
-        // Determine the status
-        $status = $request->status; // First check if a manual status is provided
-        if (is_null($status)) {
-            // If no status is manually set, determine the status based on 'assigned_to'
-            $status = $request->assigned_to ? 'in progress' : 'pending assignment';
-        }
+        if ($request->assigned_to !== null) {
+            $status = $request->status ?: 'in progress';
+        } else {
+            $status = 'pending assignment';
+        };
 
         // Update the task
         $task->update([
             'description' => $request->description,
-            'assigned_to' => $request->assigned_to ?: null, // Ensures null if no freelancer is selected
+            'assigned_to' => $request->assigned_to ?: null,
+            'fiverr_account_id' => $request->fiverr_account ?: null,
             'amount' => $request->amount,
             'freelancer_pay' => $request->freelancer_pay,
             'deadline' => $request->deadline,
-            'status' => $status, // Set status based on the logic above
+            'status' => $status,
         ]);
 
         return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
-
-
-
 
 
     /**

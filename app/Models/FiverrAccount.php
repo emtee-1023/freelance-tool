@@ -10,4 +10,9 @@ class FiverrAccount extends Model
         'username',
         'link',
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'fiverr_account_id');
+    }
 }

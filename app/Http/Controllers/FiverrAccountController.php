@@ -12,7 +12,9 @@ class FiverrAccountController extends Controller
      */
     public function index()
     {
-        $accounts = FiverrAccount::all();
+        $accounts = FiverrAccount::withCount(['tasks as tasks_in_progress_count' => function ($query) {
+            $query->where('status', 'in progress');
+        }])->get();
         return view("fiverr.index", compact("accounts"));
     }
 

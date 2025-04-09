@@ -34,6 +34,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone Number</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                 </tr>
                             </thead>
@@ -43,6 +44,15 @@
                                         <td>{{ $freelancer->name }}</td>
                                         <td>{{ $freelancer->email }}</td>
                                         <td>0{{ $freelancer->phone_number }}</td>
+                                        <td>
+                                            @if ($freelancer->tasks_in_progress_count > 0)
+                                                <span class="badge bg-info p-2">
+                                                    {{ $freelancer->tasks_in_progress_count }} task(s) in progress
+                                                </span>
+                                            @else
+                                                <span class="badge bg-success p-2">Free</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <a
                                                 class="btn btn-primary btn-sm"href="{{ route('freelancers.edit', $freelancer->id) }}">Edit

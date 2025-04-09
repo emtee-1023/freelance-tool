@@ -31,8 +31,9 @@
                         <table id="datatablesSimple" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
+                                    <th>UserName</th>
+                                    <th>Link</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                 </tr>
                             </thead>
@@ -40,7 +41,18 @@
                                 @foreach ($accounts as $account)
                                     <tr>
                                         <td>{{ $account->username }}</td>
-                                        <td>{{ $account->link }}</td>
+                                        <td>
+                                            <a href="{{ $account->link }}">{{ $account->link }}</a>
+                                        </td>
+                                        <td>
+                                            @if ($account->tasks_in_progress_count > 0)
+                                                <span class="badge bg-warning">
+                                                    {{ $account->tasks_in_progress_count }} tasks(s) In Progress
+                                                </span>
+                                            @else
+                                                <span class="badge bg-success">Free</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <a
                                                 class="btn btn-primary btn-sm"href="{{ route('fiverr-accounts.edit', $account->id) }}">Edit

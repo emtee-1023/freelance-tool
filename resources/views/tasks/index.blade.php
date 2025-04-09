@@ -53,13 +53,13 @@
 
                                         <td>
                                             @if ($task->status == 'completed')
-                                                <span class="badge bg-success">Completed</span>
+                                                <span class="badge bg-success p-2">Completed</span>
                                             @elseif ($task->status == 'pending assignment')
-                                                <span class="badge bg-warning">Pending Assignment</span>
+                                                <span class="badge bg-warning p-2">Pending Assignment</span>
                                             @elseif ($task->status == 'in progress')
-                                                <span class="badge bg-info">In Progress</span>
+                                                <span class="badge bg-info p-2">In Progress</span>
                                             @else
-                                                <span class="badge bg-danger">Cancelled</span>
+                                                <span class="badge bg-danger p-2">Cancelled</span>
                                             @endif
                                         </td>
                                         <td>

@@ -15,7 +15,10 @@ class FreelancerController extends Controller
      */
     public function index()
     {
-        $freelancers = User::where('user_type', 'freelancer')->get();
+        //$freelancers = User::where('user_type', 'freelancer')->get();
+        $freelancers = User::withCount(['tasks as tasks_in_progress_count' => function ($query) {
+            $query->where('status', 'in progress');
+        }])->get();
         return view('freelancers.index', compact('freelancers'));
     }
 
