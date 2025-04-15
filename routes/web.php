@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\FreelancerAuthController;
 use App\Http\Controllers\FiverrAccountController;
@@ -21,6 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('admins', AdminController::class)
+    ->middleware(['auth', 'verified', 'admin'])
+    ->parameters(['admins' => 'admin'])
+    ->names('admins');
 
 Route::resource('freelancers', FreelancerController::class)
     ->middleware(['auth', 'verified'])

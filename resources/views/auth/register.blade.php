@@ -3,12 +3,11 @@
 @section('title', 'Register')
 
 
-<x-guest-layout>
+@section('content')
     <main>
         <div class="container">
 
-            <section
-                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-8 d-flex flex-column align-items-center justify-content-center">
@@ -38,8 +37,7 @@
                                         <div>
                                             <x-input-label for="name" :value="__('Name')" />
                                             <x-text-input id="name" class="block mt-1 w-full" type="text"
-                                                name="name" :value="old('name')" required autofocus
-                                                autocomplete="name" />
+                                                name="name" :value="old('name')" required autofocus autocomplete="name" />
                                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                         </div>
 
@@ -146,4 +144,4 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-</x-guest-layout>
+@endsection

@@ -38,7 +38,7 @@ class FreelancerController extends Controller
         $request->validate([
             'name' => 'required|string|max:255', // 'Name' → should be lowercase to match the input field
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'required|string|max:10',
+            'phone_number' => 'required|string|max:9',
             'country' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
         ]);

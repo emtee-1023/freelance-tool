@@ -70,11 +70,23 @@
         <li class="nav-heading">Settings</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link {{ Str::startsWith($activePage, 'profile') ? '' : 'collapsed' }}"
+                href="{{ route('profile.edit') }}">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
         </li><!-- End Profile Page Nav -->
+
+        @if (Auth::user() && Auth::user()->user_type === 'admin')
+            <li class="nav-item">
+                <a href="{{ route('admins.create') }}"
+                    class="nav-link {{ Str::startsWith($activePage, 'admin') ? '' : 'collapsed' }}">
+                    <i class="bi bi-person-plus"></i> {{-- Optional icon --}}
+                    Add Admin
+                </a>
+            </li>
+        @endif
+
     </ul>
 
 </aside>
