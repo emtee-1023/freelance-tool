@@ -1,0 +1,61 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-BLaFPWSX.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Bo-u61x1.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/vendor/bootstrap-icons/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-BOrJxbIo.woff",
+    "src": "resources/vendor/bootstrap-icons/fonts/bootstrap-icons.woff"
+  },
+  "resources/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-BtvjY1KL.woff2",
+    "src": "resources/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2"
+  },
+  "resources/vendor/boxicons/fonts/boxicons.eot": {
+    "file": "assets/boxicons-CSrLvhY_.eot",
+    "src": "resources/vendor/boxicons/fonts/boxicons.eot"
+  },
+  "resources/vendor/boxicons/fonts/boxicons.svg": {
+    "file": "assets/boxicons-Dp7W9qN3.svg",
+    "src": "resources/vendor/boxicons/fonts/boxicons.svg"
+  },
+  "resources/vendor/boxicons/fonts/boxicons.ttf": {
+    "file": "assets/boxicons-EIQNrSje.ttf",
+    "src": "resources/vendor/boxicons/fonts/boxicons.ttf"
+  },
+  "resources/vendor/boxicons/fonts/boxicons.woff": {
+    "file": "assets/boxicons-CTVby2V1.woff",
+    "src": "resources/vendor/boxicons/fonts/boxicons.woff"
+  },
+  "resources/vendor/boxicons/fonts/boxicons.woff2": {
+    "file": "assets/boxicons-CeGEncwm.woff2",
+    "src": "resources/vendor/boxicons/fonts/boxicons.woff2"
+  },
+  "resources/vendor/remixicon/remixicon.eot": {
+    "file": "assets/remixicon-CTLsMfss.eot",
+    "src": "resources/vendor/remixicon/remixicon.eot"
+  },
+  "resources/vendor/remixicon/remixicon.svg": {
+    "file": "assets/remixicon-Dzy_cYSE.svg",
+    "src": "resources/vendor/remixicon/remixicon.svg"
+  },
+  "resources/vendor/remixicon/remixicon.ttf": {
+    "file": "assets/remixicon-KtvQcpfP.ttf",
+    "src": "resources/vendor/remixicon/remixicon.ttf"
+  },
+  "resources/vendor/remixicon/remixicon.woff": {
+    "file": "assets/remixicon-IHD7miHF.woff",
+    "src": "resources/vendor/remixicon/remixicon.woff"
+  },
+  "resources/vendor/remixicon/remixicon.woff2": {
+    "file": "assets/remixicon-BCkO1-UF.woff2",
+    "src": "resources/vendor/remixicon/remixicon.woff2"
+  }
+}
