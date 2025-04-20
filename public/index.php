@@ -1,21 +1,17 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
 // Determine if the application is in maintenance mode...
-if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php')) {
+if (file_exists($maintenance = __DIR__ . '/../storage/laravel-app/framework/maintenance.php')) {
     require $maintenance;
 }
 
-if (file_exists('/home/youruser/laravel-app/vendor/autoload.php')) {
-    require '/home/youruser/laravel-app/vendor/autoload.php';
-    $app = require_once '/home/youruser/laravel-app/bootstrap/app.php';
-} else {
-    require __DIR__ . '/../vendor/autoload.php';
-    $app = require_once __DIR__ . '/../bootstrap/app.php';
-}
+//Register the composer autoloader
+require __DIR__ . '/../laravel-app/vendor/autoload.php';
 
-$app->handleRequest(Request::capture());
+//Bootstrap laravel and handle the request
+(require_once __DIR__ . '/../laravel-app/bootstrap/app.php')
+    ->handleRequest(Request::capture());
