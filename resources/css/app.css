@@ -5,6 +5,7 @@
 @import "../vendor/quill/quill.bubble.css";
 @import "../vendor/remixicon/remixicon.css";
 @import "../vendor/simple-datatables/style.css";
+@import "style.css";
 
 @tailwind base;
 @tailwind components;

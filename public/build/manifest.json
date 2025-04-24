@@ -1,11 +1,27 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BLaFPWSX.css",
+    "file": "assets/app-F-XcEt3c.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/img/apple-touch-icon.png": {
+    "file": "assets/apple-touch-icon-Ou6JeAuw.png",
+    "src": "resources/img/apple-touch-icon.png"
+  },
+  "resources/img/favicon.png": {
+    "file": "assets/favicon-DcIgDO7J.png",
+    "src": "resources/img/favicon.png"
+  },
+  "resources/img/logo.png": {
+    "file": "assets/logo-DIrO1-bb.png",
+    "src": "resources/img/logo.png"
+  },
+  "resources/img/profile-img.jpg": {
+    "file": "assets/profile-img-otNBDq-f.jpg",
+    "src": "resources/img/profile-img.jpg"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-Bo-u61x1.js",
+    "file": "assets/app-WfDmVXDo.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

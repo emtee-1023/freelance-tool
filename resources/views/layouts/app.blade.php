@@ -1,3 +1,10 @@
+@php
+    $favicon = Vite::asset('resources/img/favicon.png');
+    $appleTouchIcon = Vite::asset('resources/img/apple-touch-icon.png');
+    $logo = Vite::asset('resources/img/logo.png');
+    $pfp = Vite::asset('resources/img/profile-img.jpg');
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -10,7 +17,7 @@
 
     <!-- Favicons -->
     <link href="{{ Vite::asset('resources/img/favicon.png') }}" rel="icon">
-    <link href="{{ Vite::asset('resources/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ $appleTouchIcon }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -22,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <!-- Template Main CSS File -->
-    @vite(['resources/css/app.css', 'resources/css/style.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
@@ -46,9 +53,6 @@
     <!-- Back to top -->
     <x-back-to-top>
     </x-back-to-top>
-
-    <!-- Template Main JS File -->
-    @Vite(['resources/js/main.js'])
 
     {{-- Data Tables --}}
     <script>

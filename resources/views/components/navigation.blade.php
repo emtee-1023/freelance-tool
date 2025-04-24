@@ -1,8 +1,13 @@
+@php
+    $logo = Vite::asset('resources/img/logo.png');
+    $pfp = Vite::asset('resources/img/profile-img.jpg');
+@endphp
+
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-            <img src="{{ Vite::asset('resources/img/logo.png') }}" alt="">
+            <img src="{{ $logo }}" alt="">
             <span class="d-none d-lg-block">{{ config('app.name', 'Laravel') }}</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -171,7 +176,7 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="{{ Vite::asset('resources/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+                    <img src="{{ $pfp }}" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                 </a><!-- End Profile Iamge Icon -->
 

@@ -321,7 +321,7 @@
                             <div class="card-body pb-0">
                                 <h5 class="card-title">Top Selling <span>| Today</span></h5>
 
-                                <table class="table table-borderless">
+                                {{-- <table class="table table-borderless">
                                     <thead>
                                         <tr>
                                             <th scope="col">Preview</th>
@@ -383,7 +383,7 @@
                                             <td>$3,239</td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table> --}}
 
                             </div>
 
@@ -638,7 +638,7 @@
                         </ul>
                     </div>
 
-                    <div class="card-body pb-0">
+                    {{-- <div class="card-body pb-0">
                         <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
 
                         <div class="news">
@@ -678,7 +678,7 @@
 
                         </div><!-- End sidebar recent posts-->
 
-                    </div>
+                    </div> --}}
                 </div><!-- End News & Updates -->
 
             </div><!-- End Right side columns -->
