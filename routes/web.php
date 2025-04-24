@@ -7,6 +7,7 @@ use App\Http\Controllers\FreelancerAuthController;
 use App\Http\Controllers\FiverrAccountController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\IsAdmin;
 
 
 Route::get('/', function () {
@@ -24,7 +25,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('admins', AdminController::class)
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified', IsAdmin::class])
     ->parameters(['admins' => 'admin'])
     ->names('admins');
 

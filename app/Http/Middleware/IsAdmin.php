@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-
-class AdminMiddleware
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -21,6 +20,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        abort(403, 'Unauthorized');
+        abort(403, 'unauthorized');
     }
 }
