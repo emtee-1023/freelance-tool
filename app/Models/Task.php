@@ -9,6 +9,7 @@ class Task extends Model
     protected $fillable = [
         'description',
         'assigned_to',
+        'client_id',
         'amount',
         'freelancer_pay',
         'deadline',
@@ -24,6 +25,11 @@ class Task extends Model
     public function fiverrAccount()
     {
         return $this->belongsTo(FiverrAccount::class, 'fiverr_account_id');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
     }
 
     public static function getStatusOptions(): array

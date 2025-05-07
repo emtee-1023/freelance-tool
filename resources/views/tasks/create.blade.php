@@ -55,17 +55,18 @@
                                         </div>
 
                                         <div class="col-5">
-                                            <x-input-label for="fiverr_account" :value="__('Fiverr Account')" />
-                                            <x-select-input id="fiverr_account" class="block mt-1 w-full"
-                                                name="fiverr_account" :value="old('fiverr_account')" autofocus>
-                                                <option value="" disabled selected>Select a fiverr account</option>
-                                                @foreach ($fiverrAccounts as $fiverrAccount)
-                                                    <option value="{{ $fiverrAccount->id }}">
-                                                        {{ $fiverrAccount->username }}
+                                            <x-input-label for="client" :value="__('Client')" />
+                                            <x-select-input id="client" class="block mt-1 w-full" name="client_id"
+                                                :value="old('client_id')" autofocus>
+
+                                                <option value="" disabled selected>Select a client</option>
+                                                @foreach ($clients as $client)
+                                                    <option value="{{ $client->id }}">
+                                                        {{ $client->name }}
                                                     </option>
                                                 @endforeach
                                             </x-select-input>
-                                            <x-input-error :messages="$errors->get('fiverr_account')" class="mt-2" />
+                                            <x-input-error :messages="$errors->get('assigned_to')" class="mt-2" />
                                         </div>
                                     </div>
 
@@ -91,11 +92,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="mt-4">
-                                        <x-input-label for="deadline" :value="__('Deadline')" />
-                                        <x-text-input id="deadline" class="block mt-1 w-full" type="datetime-local"
-                                            name="deadline" :value="old('deadline')" required autofocus />
-                                        <x-input-error :messages="$errors->get('deadline')" class="mt-2" />
+                                    <div class="d-flex flex-row justify-between mt-4">
+
+                                        <div class="col-5">
+                                            <x-input-label for="fiverr_account" :value="__('Fiverr Account')" />
+                                            <x-select-input id="fiverr_account" class="block mt-1 w-full"
+                                                name="fiverr_account" :value="old('fiverr_account')" autofocus>
+                                                <option value="" disabled selected>Select a fiverr account</option>
+                                                @foreach ($fiverrAccounts as $fiverrAccount)
+                                                    <option value="{{ $fiverrAccount->id }}">
+                                                        {{ $fiverrAccount->username }}
+                                                    </option>
+                                                @endforeach
+                                            </x-select-input>
+                                            <x-input-error :messages="$errors->get('fiverr_account')" class="mt-2" />
+                                        </div>
+
+                                        <div class="col-5">
+                                            <x-input-label for="deadline" :value="__('Deadline')" />
+                                            <x-text-input id="deadline" class="block mt-1 w-full" type="datetime-local"
+                                                name="deadline" :value="old('deadline')" required autofocus />
+                                            <x-input-error :messages="$errors->get('deadline')" class="mt-2" />
+                                        </div>
                                     </div>
 
                                     <div class="flex items-center justify-end mt-4">

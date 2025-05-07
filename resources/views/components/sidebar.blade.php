@@ -19,6 +19,14 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link {{ Str::startsWith($activePage, 'clients') ? '' : 'collapsed' }}"
+                href="{{ route('clients.index') }}">
+                <i class="bi bi-people"></i>
+                <span>Clients</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link {{ Str::startsWith($activePage, 'fiverr-accounts') ? '' : 'collapsed' }}"
                 href="{{ route('fiverr-accounts.index') }}">
                 <i class="bi bi-briefcase"></i>

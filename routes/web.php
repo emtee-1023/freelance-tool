@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\FreelancerAuthController;
 use App\Http\Controllers\FiverrAccountController;
@@ -46,5 +47,10 @@ Route::resource('tasks', TaskController::class)
     ->middleware(['auth', 'verified'])
     ->parameters(['tasks' => 'task'])
     ->names('tasks');
+
+Route::resource('clients', ClientController::class)
+    ->middleware(['auth', 'verified', IsAdmin::class])
+    ->parameters(['clients' => 'client'])
+    ->names('clients');
 
 require __DIR__ . '/auth.php';

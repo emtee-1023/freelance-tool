@@ -33,6 +33,7 @@
                                 <tr>
                                     <th>Description</th>
                                     <th>Assigned To</th>
+                                    <th>Client</th>
                                     <th>Amount</th>
                                     <th>Freelancer Pay</th>
                                     <th>Deadline</th>
@@ -45,6 +46,7 @@
                                     <tr>
                                         <td>{{ $task->description }}</td>
                                         <td>{{ optional($task->freelancer)->name ?? 'Not Assigned' }}</td>
+                                        <td>{{ optional($task->client)->name ?? 'N/A' }}</td>
                                         <td>{{ $task->amount }}</td>
                                         <td>{{ $task->freelancer_pay }}</td>
                                         <td>

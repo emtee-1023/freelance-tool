@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Client;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -14,8 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        //creating the default admin
         User::create([
             'name' => 'admin',
             'email' => 'test@example.com',
@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('@#202507'),
             'user_type' => 'admin',
             'email_verified_at' => now(),
+        ]);
+
+        //creating the default client
+        Client::create([
+            'id' => 0,
+            'name' => 'Walk in Client',
         ]);
     }
 }

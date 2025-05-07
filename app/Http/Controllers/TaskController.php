@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FiverrAccount;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -26,7 +27,8 @@ class TaskController extends Controller
         $freelancers = User::where('user_type', 'freelancer')->get();
         $statuses = Task::getStatusOptions();
         $fiverrAccounts = FiverrAccount::all();
-        return view('tasks.create', compact('freelancers', 'statuses', 'fiverrAccounts'));
+        $clients = Client::all();
+        return view('tasks.create', compact('freelancers', 'clients', 'statuses', 'fiverrAccounts'));
     }
 
     /**
@@ -37,6 +39,7 @@ class TaskController extends Controller
         $request->validate([
             'description' => 'required|string|max:255',
             'assigned_to' => 'nullable|exists:users,id',
+            'client_id' => 'nullable|exists:clients,id',
             'fiverr_account' => 'nullable|exists:fiverr_accounts,id',
             'amount' => 'required|numeric|min:0',
             'freelancer_pay' => 'required|numeric|min:0',
@@ -46,6 +49,7 @@ class TaskController extends Controller
         Task::create([
             'description' => $request->description,
             'assigned_to' => $request->assigned_to ?: null,
+            'client_id' => $request->client_id ?: null,
             'fiverr_account_id' => $request->fiverr_account ?: null,
             'amount' => $request->amount,
             'freelancer_pay' => $request->freelancer_pay,
@@ -72,7 +76,8 @@ class TaskController extends Controller
         $freelancers = User::where('user_type', 'freelancer')->get();
         $statuses = Task::getStatusOptions();
         $fiverrAccounts = FiverrAccount::all();
-        return view('tasks.edit', compact('task', 'freelancers', 'statuses', 'fiverrAccounts'));
+        $clients = Client::all();
+        return view('tasks.edit', compact('task', 'freelancers', 'clients', 'statuses', 'fiverrAccounts'));
     }
 
     /**
@@ -83,6 +88,7 @@ class TaskController extends Controller
         $request->validate([
             'description' => 'required|string|max:255',
             'assigned_to' => 'nullable|exists:users,id',
+            'client_id' => 'nullable|exists:clients,id',
             'fiverr_account' => 'nullable|exists:fiverr_accounts,id',
             'amount' => 'required|numeric|min:0',
             'freelancer_pay' => 'required|numeric|min:0',
@@ -100,6 +106,7 @@ class TaskController extends Controller
         $task->update([
             'description' => $request->description,
             'assigned_to' => $request->assigned_to ?: null,
+            'client_id' => $request->client_id ?: null,
             'fiverr_account_id' => $request->fiverr_account ?: null,
             'amount' => $request->amount,
             'freelancer_pay' => $request->freelancer_pay,
