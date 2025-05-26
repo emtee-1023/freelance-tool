@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\FiverrAccount;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class FiverrAccountFactory extends Factory
 {
+    protected $model = FiverrAccount::class;
     /**
      * Define the model's default state.
      *
