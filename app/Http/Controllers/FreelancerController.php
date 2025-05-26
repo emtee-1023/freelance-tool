@@ -60,6 +60,12 @@ class FreelancerController extends Controller
         // Send email with token to set password
         $freelancer->notify(new FreelancerWelcomeNotification($token));
 
+        // If the request is AJAX (like your modal form), return JSON
+        if ($request->ajax()) {
+            return response()->json($freelancer, 201);
+        }
+
+        // Otherwise, redirect like normal
         return redirect()->route('freelancers.index')
             ->with('success', 'Freelancer added successfully! They’ve been emailed a link to set their password.');
     }
