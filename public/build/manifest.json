@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-Cat3HgC4.css",
+    "file": "assets/app--_5jC9QT.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -24,6 +24,12 @@
     "file": "assets/app-WfDmVXDo.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/custom/task-form.js": {
+    "file": "assets/task-form-BOcsOXwH.js",
+    "name": "task-form",
+    "src": "resources/js/custom/task-form.js",
     "isEntry": true
   },
   "resources/vendor/bootstrap-icons/fonts/bootstrap-icons.woff": {
