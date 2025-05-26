@@ -35,6 +35,9 @@ Route::resource('freelancers', FreelancerController::class)
     ->parameters(['freelancers' => 'freelancer'])
     ->names('freelancers');
 
+Route::post('/freelancers', [FreelancerController::class, 'store']);
+
+
 Route::get('/freelancers/set-password', [FreelancerAuthController::class, 'showPasswordForm'])->name('freelancers.set-password');
 Route::post('/freelancers/set-password', [FreelancerAuthController::class, 'updatePassword'])->name('freelancers.update-password');
 
@@ -42,6 +45,9 @@ Route::resource('fiverr-accounts', FiverrAccountController::class)
     ->middleware(['auth', 'verified'])
     ->parameters(['fiverr-accounts' => 'fiverrAccount'])
     ->names('fiverr-accounts');
+
+Route::post('/fiverr-accounts', [FiverrAccountController::class, 'store'])->name('fiverr-accounts.store');
+
 
 Route::resource('tasks', TaskController::class)
     ->middleware(['auth', 'verified'])
@@ -52,5 +58,8 @@ Route::resource('clients', ClientController::class)
     ->middleware(['auth', 'verified', IsAdmin::class])
     ->parameters(['clients' => 'client'])
     ->names('clients');
+
+Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+
 
 require __DIR__ . '/auth.php';

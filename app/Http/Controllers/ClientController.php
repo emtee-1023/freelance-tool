@@ -12,7 +12,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::query()->where('id', '!=', 1)->get();
         return view('client.index', compact('clients'));
     }
 
@@ -29,16 +29,23 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
         ]);
 
-        Client::create([
-            'name' => $request->name,
-        ]);
+        $client = Client::create($validated);
 
-        return redirect()->route('client.index')->with('success', 'Client Registered Successfuly');
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Client registered successfully',
+                'client' => $client,
+            ]);
+        }
+
+        return redirect()->route('client.index')->with('success', 'Client Registered Successfully');
     }
+
 
     /**
      * Display the specified resource.

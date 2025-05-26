@@ -31,18 +31,24 @@ class FiverrAccountController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'username' => 'required|string|max:255|unique:fiverr_accounts,username',
-            'link' => 'nullable|string'
+            'link' => 'nullable|string',
         ]);
 
-        $account = FiverrAccount::create([
-            'username' => $request->username,
-            'link' => $request->link,
-        ]);
+        $fiverrAccount = FiverrAccount::create($validated);
 
-        return redirect()->route('fiverr-accounts.index')->with('success', 'Fiverr Account Added Successfuly');
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Fiverr Account added successfully',
+                'fiverrAccount' => $fiverrAccount,
+            ]);
+        }
+
+        return redirect()->route('fiverr-accounts.index')->with('success', 'Fiverr Account added successfully');
     }
+
 
     /**
      * Display the specified resource.
