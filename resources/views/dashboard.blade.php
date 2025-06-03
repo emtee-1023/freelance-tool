@@ -17,7 +17,7 @@
         <div class="row">
 
             <!-- Left side columns -->
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="row">
 
                     <!-- Sales Card -->
@@ -32,21 +32,25 @@
                                         <h6>Filter</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('dashboard', ['range' => 'today']) }}">Today</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'month']) }}">This
+                                            Month</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'year']) }}">This
+                                            Year</a></li>
+
                                 </ul>
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Sales <span>| Today</span></h5>
+                                <h5 class="card-title">Sales <span>| {{ ucfirst($range) }}</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-cart"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>145</h6>
+                                        <h6>{{ $analytics['total_tasks'] }}</h6>
                                         <span class="text-success small pt-1 fw-bold">12%</span> <span
                                             class="text-muted small pt-2 ps-1">increase</span>
 
@@ -69,21 +73,25 @@
                                         <h6>Filter</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('dashboard', ['range' => 'today']) }}">Today</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'month']) }}">This
+                                            Month</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'year']) }}">This
+                                            Year</a></li>
+
                                 </ul>
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                <h5 class="card-title">Revenue <span>| {{ ucfirst($range) }}</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-currency-dollar"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>$3,264</h6>
+                                        <h6>KES {{ number_format($analytics['total_earnings'], 2) }}</h6>
                                         <span class="text-success small pt-1 fw-bold">8%</span> <span
                                             class="text-muted small pt-2 ps-1">increase</span>
 
@@ -107,21 +115,25 @@
                                         <h6>Filter</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('dashboard', ['range' => 'today']) }}">Today</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'month']) }}">This
+                                            Month</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'year']) }}">This
+                                            Year</a></li>
+
                                 </ul>
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Customers <span>| This Year</span></h5>
+                                <h5 class="card-title">Customers <span>| {{ ucfirst($range) }}</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-people"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>1244</h6>
+                                        <h6>{{ $analytics['total_tasks'] }}</h6>
                                         <span class="text-danger small pt-1 fw-bold">12%</span> <span
                                             class="text-muted small pt-2 ps-1">decrease</span>
 
@@ -133,7 +145,7 @@
 
                     </div><!-- End Customers Card -->
 
-                    <!-- Reports -->
+                    {{-- <!-- Reports -->
                     <div class="col-12">
                         <div class="card">
 
@@ -145,9 +157,13 @@
                                         <h6>Filter</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('dashboard', ['range' => 'today']) }}">Today</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'month']) }}">This
+                                            Month</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard', ['range' => 'year']) }}">This
+                                            Year</a></li>
+
                                 </ul>
                             </div>
 
@@ -218,80 +234,53 @@
                             </div>
 
                         </div>
-                    </div><!-- End Reports -->
+                    </div><!-- End Reports --> --}}
 
                     <!-- Recent Sales -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
 
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i
-                                        class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
                             <div class="card-body">
-                                <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                                <h5 class="card-title">Latest Tasks</span></h5>
 
                                 <table class="table table-borderless datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Price</th>
+                                            <th scope="col">Client</th>
+                                            <th scope="col">Task Description</th>
+                                            <th scope="col">Freelancer</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Freelancer pay</th>
+                                            <th scope="col">Deadline</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2457</a></th>
-                                            <td>Brandon Jacob</td>
-                                            <td><a href="#" class="text-primary">At praesentium minu</a>
-                                            </td>
-                                            <td>$64</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2147</a></th>
-                                            <td>Bridie Kessler</td>
-                                            <td><a href="#" class="text-primary">Blanditiis dolor omnis
-                                                    similique</a></td>
-                                            <td>$47</td>
-                                            <td><span class="badge bg-warning">Pending</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2049</a></th>
-                                            <td>Ashleigh Langosh</td>
-                                            <td><a href="#" class="text-primary">At recusandae
-                                                    consectetur</a></td>
-                                            <td>$147</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Angus Grady</td>
-                                            <td><a href="#" class="text-primar">Ut voluptatem id earum
-                                                    et</a></td>
-                                            <td>$67</td>
-                                            <td><span class="badge bg-danger">Rejected</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Raheem Lehner</td>
-                                            <td><a href="#" class="text-primary">Sunt similique
-                                                    distinctio</a></td>
-                                            <td>$165</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
+                                        @foreach ($tasks as $task)
+                                            <tr>
+                                                <td>{{ optional($task->client)->name ?? 'N/A' }}</td>
+                                                <td> {{ $task->description }} </td>
+                                                <td>{{ optional($task->freelancer)->name ?? 'Not Assigned' }}</td>
+                                                <td>{{ $task->amount }}</td>
+                                                <td>{{ $task->freelancer_pay }}</td>
+                                                <td>
+                                                    {{ $task->deadline ? \Carbon\Carbon::parse($task->deadline)->format('d/m/Y \a\t H:i:s') : 'N/A' }}
+                                                </td>
+                                                <td>
+                                                    @if ($task->status == 'completed')
+                                                        <span class="badge bg-success">Completed</span>
+                                                    @elseif ($task->status == 'pending assignment')
+                                                        <span class="badge bg-warning">Pending Assignment</span>
+                                                    @elseif ($task->status == 'in progress')
+                                                        <span class="badge bg-info">In Progress</span>
+                                                    @else
+                                                        <span class="badge bg-danger">Cancelled</span>
+                                                    @endif
+                                                </td>
+
+
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -301,7 +290,7 @@
                     </div><!-- End Recent Sales -->
 
                     <!-- Top Selling -->
-                    <div class="col-12">
+                    {{-- <div class="col-12">
                         <div class="card top-selling overflow-auto">
 
                             <div class="filter">
@@ -321,7 +310,7 @@
                             <div class="card-body pb-0">
                                 <h5 class="card-title">Top Selling <span>| Today</span></h5>
 
-                                {{-- <table class="table table-borderless">
+                                <table class="table table-borderless">
                                     <thead>
                                         <tr>
                                             <th scope="col">Preview</th>
@@ -383,18 +372,18 @@
                                             <td>$3,239</td>
                                         </tr>
                                     </tbody>
-                                </table> --}}
+                                </table>
 
                             </div>
 
                         </div>
-                    </div><!-- End Top Selling -->
+                    </div><!-- End Top Selling --> --}}
 
                 </div>
             </div><!-- End Left side columns -->
 
             <!-- Right side columns -->
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
 
                 <!-- Recent Activity -->
                 <div class="card">
@@ -638,7 +627,7 @@
                         </ul>
                     </div>
 
-                    {{-- <div class="card-body pb-0">
+                    <div class="card-body pb-0">
                         <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
 
                         <div class="news">
@@ -678,10 +667,11 @@
 
                         </div><!-- End sidebar recent posts-->
 
-                    </div> --}}
+                    </div>
                 </div><!-- End News & Updates -->
 
-            </div><!-- End Right side columns -->
+            </div> --}}
+            <!-- End Right side columns -->
 
         </div>
     </section>
